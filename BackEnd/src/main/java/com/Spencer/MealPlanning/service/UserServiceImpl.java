@@ -4,6 +4,7 @@ import com.spencer.mealplanning.entity.User;
 import com.spencer.mealplanning.repository.UserDao;
 import com.spencer.mealplanning.utility.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User saveUser(User user) {
+        user.setUserPassword(passwordEncoder.encode(user.getPassword()));
+        user.setUserRole("ROLE_USER");
         return dao.save(user);
     }
 
@@ -59,9 +62,9 @@ public class UserServiceImpl implements UserService {
     public User login(User user) {
         String password = user.getUserPassword();
         User u = dao.findByUsername(user.getUsername());
-        if (u != null && passwordEncoder.matches(password, u.getUserPassword())) {
+//        if (u != null && passwordEncoder.matches(password, u.getUserPassword())) {
             return u;
-        }
-        return new User();
+//        }
+//        return new User();
     }
 }

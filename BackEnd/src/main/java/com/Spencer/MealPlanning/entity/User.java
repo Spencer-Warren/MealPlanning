@@ -1,5 +1,7 @@
 package com.spencer.mealplanning.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -23,12 +25,16 @@ public class User implements UserDetails {
     private String firstName;
     private String lastName;
     private String userEmail;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String userPassword;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String userRole;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE, orphanRemoval = true)
     private List<Meal> meals;
 
+    @JsonIgnore
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (Objects.isNull(userRole)) {
@@ -37,6 +43,7 @@ public class User implements UserDetails {
         return List.of(() -> userRole);
     }
 
+    @JsonIgnore
     @Override
     public String getPassword() {
         return userPassword;
@@ -47,21 +54,25 @@ public class User implements UserDetails {
         return userName;
     }
 
+    @JsonIgnore
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
 
+    @JsonIgnore
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
 
+    @JsonIgnore
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
 
+    @JsonIgnore
     @Override
     public boolean isEnabled() {
         return true;
