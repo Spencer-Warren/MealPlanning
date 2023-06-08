@@ -9,22 +9,26 @@ export class AccountService {
 
   constructor(private api: RESTAPIService) { }
 
-  login(user: User) {
+  async login(user: User): Promise<any> {
     this.api.loginUser(user).subscribe(
       data => {
         if (data.status === 200) {
+          console.log(data);
           this.updateUserInfo(data.user);
+          return true;
         }
-        else {
-          alert("Wrong username or password");
-        }
+        return false;
+      },
+      error => {
+        alert("Login failed. Please try again.");
+        return false;
       }
     );
   }
 
   updateUserInfo(user: User) {
     localStorage.setItem('user', JSON.stringify(user));
-    localStorage.setItem('token', this.getAuthenticationToken(user.userName, user.userPassword));
+    localStorage.setItem('token', this.getAuthenticationToken(user.username, user.userPassword));
   }
 
 

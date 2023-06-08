@@ -1,0 +1,36 @@
+.background {
+    background-image: url(/assets/fish.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    background-color: #C3EFC3;
+}
+
+.main {
+    margin-left: 200px;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.off-white {
+    background-color: #F9F5EC;
+  }
+  
+.card-header {
+    background-color: #F9F5EC;
+}
+  
+  .logo-m {
+      width: 150px;
+  }
+  
+  .logo-s {
+      width: 45px;
+  }
+  
+  .logo-div {
+      width: 100%;
+      text-align: center;
+  }

@@ -8,6 +8,8 @@ import { LoginComponent } from './public/login/login.component';
 import { HomeComponent } from './public/home/home.component';
 import { AboutComponent } from './public/about/about.component';
 import { ContactComponent } from './public/contact/contact.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { ContactComponent } from './public/contact/contact.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

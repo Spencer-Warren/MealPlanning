@@ -17,11 +17,12 @@ import java.util.Objects;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userID;
-    private String userName;
+    private String username;
     private String firstName;
     private String lastName;
     private String userEmail;
@@ -48,10 +49,10 @@ public class User implements UserDetails {
     public String getPassword() {
         return userPassword;
     }
-
+    
     @Override
     public String getUsername() {
-        return userName;
+        return username;
     }
 
     @JsonIgnore

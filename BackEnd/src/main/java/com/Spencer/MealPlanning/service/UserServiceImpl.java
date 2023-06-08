@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
     public ResponseEntity<String> updateUser(User user) {
         dao.findById(user.getUserID())
                 .ifPresent(u -> {
-            u.setUserName(user.getUsername());
+            u.setUsername(user.getUsername());
             u.setFirstName(user.getFirstName());
             u.setLastName(user.getLastName());
             u.setUserEmail(user.getUserEmail());
@@ -59,12 +59,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User login(User user) {
+    public ResponseEntity<User> login(User user) {
         String password = user.getUserPassword();
         User u = dao.findByUsername(user.getUsername());
-//        if (u != null && passwordEncoder.matches(password, u.getUserPassword())) {
-            return u;
-//        }
-//        return new User();
+        if (u != null && passwordEncoder.matches(password, u.getUserPassword())) {
+            return Response.of(u);
+        }
+        return Response.of(new User(), HttpStatus.UNAUTHORIZED);
     }
 }

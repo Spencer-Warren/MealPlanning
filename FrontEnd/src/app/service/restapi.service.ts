@@ -17,7 +17,9 @@ export class RESTAPIService {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE'
-    })
+    }),
+    observe: 'response' as 'response'
+
   };
 
   registerUser(user: User): Observable<any> {

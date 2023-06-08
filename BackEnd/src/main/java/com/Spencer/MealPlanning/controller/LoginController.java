@@ -3,6 +3,7 @@ package com.spencer.mealplanning.controller;
 import com.spencer.mealplanning.entity.User;
 import com.spencer.mealplanning.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +16,7 @@ public class LoginController {
     private UserService userService;
 
     @PostMapping("/api/login")
-    public User login(@RequestBody User user) {
+    public ResponseEntity<User> login(@RequestBody User user) {
         return userService.login(user);
     }
 

@@ -9,6 +9,6 @@ public interface UserService {
     User findByID(int userID);
     ResponseEntity<String> updateUser(User user);
     ResponseEntity<String> deleteUser(User user);
-    User login(User user);
+    ResponseEntity<User> login(User user);
 
 }
