@@ -49,7 +49,7 @@ public class User implements UserDetails {
     public String getPassword() {
         return userPassword;
     }
-    
+
     @Override
     public String getUsername() {
         return username;

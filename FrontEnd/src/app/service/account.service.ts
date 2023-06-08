@@ -12,9 +12,11 @@ export class AccountService {
   async login(user: User): Promise<any> {
     this.api.loginUser(user).subscribe(
       data => {
+        console.log(data);
+        console.log(data.status);
         if (data.status === 200) {
-          console.log(data);
-          this.updateUserInfo(data.user);
+          console.log("Login successful!");
+          this.updateUserInfo(data.body);
           return true;
         }
         return false;
@@ -27,18 +29,18 @@ export class AccountService {
   }
 
   updateUserInfo(user: User) {
-    localStorage.setItem('user', JSON.stringify(user));
-    localStorage.setItem('token', this.getAuthenticationToken(user.username, user.userPassword));
+    sessionStorage.setItem('user', JSON.stringify(user));
+    sessionStorage.setItem('token', this.getAuthenticationToken(user.username, user.userPassword));
   }
 
 
   get isLoggedIn() {
-    return localStorage.getItem('user') !== null;
+    return sessionStorage.getItem('user') !== null;
   }
 
   logout() {
-    localStorage.removeItem('user');
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('user');
+    sessionStorage.removeItem('token');
   }
 
   getAuthenticationToken(username: string, password: string) {

@@ -16,21 +16,29 @@
 
 .off-white {
     background-color: #F9F5EC;
-  }
-  
+}
+
 .card-header {
     background-color: #F9F5EC;
 }
-  
-  .logo-m {
-      width: 150px;
-  }
-  
-  .logo-s {
-      width: 45px;
-  }
-  
-  .logo-div {
-      width: 100%;
-      text-align: center;
-  }
+
+.logo-m {
+    width: 150px;
+}
+
+.logo-s {
+    width: 45px;
+}
+
+.logo-div {
+    width: 100%;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    margin-bottom: .5rem;
+}

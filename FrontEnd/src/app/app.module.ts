@@ -10,6 +10,8 @@ import { AboutComponent } from './public/about/about.component';
 import { ContactComponent } from './public/contact/contact.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './public/register/register.component';
+import { CalendarComponent } from './secure/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    RegisterComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
