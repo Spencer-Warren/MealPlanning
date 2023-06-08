@@ -26,10 +26,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       let loginUser = new User(0, this.loginForm.value.username, this.loginForm.value.password,"","","");
       // Wait for the login to complete
-      let success: boolean = await this.accountService.login(loginUser);
-      if (success) {
-        this.router.navigate(['/calendar']);
-      }
+      let success = await this.accountService.login(loginUser);
     }
   }
 

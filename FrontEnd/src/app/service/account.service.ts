@@ -1,29 +1,26 @@
 import { Injectable } from '@angular/core';
 import { User } from '../modles/User';
 import { RESTAPIService } from './restapi.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
 
-  constructor(private api: RESTAPIService) { }
+  constructor(private api: RESTAPIService, private router: Router) { }
 
-  async login(user: User): Promise<any> {
+  async login(user: User){
     this.api.loginUser(user).subscribe(
       data => {
-        console.log(data);
-        console.log(data.status);
         if (data.status === 200) {
-          console.log("Login successful!");
+          alert("Login successful!");
           this.updateUserInfo(data.body);
-          return true;
+          this.router.navigate(['/calendar']);
         }
-        return false;
-      },
-      error => {
-        alert("Login failed. Please try again.");
-        return false;
+        else {
+          alert("Login failed!");
+        }
       }
     );
   }
