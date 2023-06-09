@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin // allow cross origin requests from the frontend
+@CrossOrigin
 public class LoginController {
     @Autowired
     private UserService userService;

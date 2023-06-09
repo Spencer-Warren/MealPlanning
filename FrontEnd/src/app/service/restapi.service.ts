@@ -30,5 +30,13 @@ export class RESTAPIService {
     return this.http.post<any>(this.url + '/login', user, this.httpOptions);
   }
 
+  deleteUser(user: User): Observable<any> {
+    return this.http.delete<any>(this.url + '/user', { headers: this.httpOptions.headers, observe: 'response', body: user });
+  }
+
+  updateUser(user: User): Observable<any> {
+    return this.http.put<any>(this.url + '/user', user, this.httpOptions);
+  }
+
 
 }

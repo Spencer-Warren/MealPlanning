@@ -1,0 +1,19 @@
+<div class="card w-75">
+    <div class="card-header">
+        <h1>Profile</h1>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <h3>Username: {{user.username}}</h3>
+                <h3>Email: {{user.userEmail}}</h3>
+                <h3>First Name: {{user.firstName}}</h3>
+                <h3>Last Name: {{user.lastName}}</h3>
+            </div>
+        </div>
+        <div class="mt-3">
+            <button class="btn btn-primary me-3" (click)="editProfile()">Edit Profile</button>
+            <button class="btn btn-danger" (click)="deleteProfile()">Delete Profile</button>
+        </div>
+    </div>
+</div>

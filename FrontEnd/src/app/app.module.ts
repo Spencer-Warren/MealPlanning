@@ -9,9 +9,13 @@ import { HomeComponent } from './public/home/home.component';
 import { AboutComponent } from './public/about/about.component';
 import { ContactComponent } from './public/contact/contact.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './public/register/register.component';
 import { CalendarComponent } from './secure/calendar/calendar.component';
+import { ProfileComponent } from './secure/profile/profile.component';
+import { RecipesComponent } from './secure/recipes/recipes.component';
+import { BasicAuthInterceptor } from './service/basicAuthInterceptor.service';
+import { EditProfileComponent } from './secure/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,10 @@ import { CalendarComponent } from './secure/calendar/calendar.component';
     AboutComponent,
     ContactComponent,
     RegisterComponent,
-    CalendarComponent
+    CalendarComponent,
+    ProfileComponent,
+    RecipesComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,9 @@ import { CalendarComponent } from './secure/calendar/calendar.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

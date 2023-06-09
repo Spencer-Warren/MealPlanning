@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
             return Response.of("Deleted User with ID:" + user.getUserID());
         }
         else {
-            return Response.of("User with ID:" + user.getUserID() + " does not exist.");
+            return Response.of("User with ID:" + user.getUserID() + " does not exist.", HttpStatus.NOT_FOUND);
         }
     }
 

@@ -43,7 +43,6 @@ public class User implements UserDetails {
         }
         return List.of(() -> userRole);
     }
-
     @JsonIgnore
     @Override
     public String getPassword() {

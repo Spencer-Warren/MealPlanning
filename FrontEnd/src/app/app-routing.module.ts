@@ -6,6 +6,9 @@ import { AboutComponent } from './public/about/about.component';
 import { ContactComponent } from './public/contact/contact.component';
 import { RegisterComponent } from './public/register/register.component';
 import { CalendarComponent } from './secure/calendar/calendar.component';
+import { RecipesComponent } from './secure/recipes/recipes.component';
+import { ProfileComponent } from './secure/profile/profile.component';
+import { EditProfileComponent } from './secure/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   // public routes
@@ -18,6 +21,9 @@ const routes: Routes = [
   
   // secure routes
   { path: 'calendar', component: CalendarComponent },
+  { path: 'recipes',  component: RecipesComponent },
+  { path: 'profile',  component: ProfileComponent },
+  { path: 'edit-profile',  component: EditProfileComponent },
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' },
