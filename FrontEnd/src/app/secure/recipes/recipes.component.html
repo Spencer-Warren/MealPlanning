@@ -1,1 +1,28 @@
-<p>recipes works!</p>
+<div class="card w-75">
+    <div class="card-header">
+        <h1>Recipes</h1>
+    </div>
+    <div class="card-body">
+        <button class="btn btn-primary mb-3" (click)="createRecipe()">Create a Meal</button>
+        <div *ngIf="recipes.length == 0" class="m-3">
+            No recipes found... <br>
+            you can create one using the button above.
+        </div>
+        <div *ngIf="recipes.length > 0" class="row">
+
+        <div *ngFor="let recipe of recipes" class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2>{{recipe.mealName}}</h2>
+                    <div class="text-muted">{{recipe.mealCategory}}</div>
+                </div>
+                <div class="card-body">
+                    <p>{{recipe.mealDescription}}</p>
+                    <button class="btn btn-primary me-2" (click)="onSelect(recipe)">View</button>
+                    <button class="btn btn-outline-primary me-2" (click)="onEdit(recipe)">Edit</button>
+                    <button class="btn btn-danger" (click)="onDelete(recipe)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

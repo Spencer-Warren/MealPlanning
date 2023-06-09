@@ -1,0 +1,63 @@
+<div class="card m-5 w-80">
+    <div class="card-header">
+        <h1>Create a New Meal</h1>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Please fill out the form below to create a new meal.</h5>
+
+        <label class="me-2">Check this box for manual input</label>
+        <input type="checkbox" (click)="onManualToggle()">
+
+        <hr>
+
+        <form [formGroup]="mealForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="mealName">Meal Name</label>
+                <input type="text" formControlName="mealName" class="form-control" id="mealName" placeholder="Name">
+            </div>
+
+            <div class="form-group">
+                <label for="mealCategory">Meal Category</label>
+                <input type="text" formControlName="mealCategory" class="form-control" id="mealCategory"
+                    placeholder="Category">
+            </div>
+
+            <div *ngIf="isManual">
+
+                <div class="form-group">
+                    <label for="mealCookTime">Meal Cook Time</label>
+                    <input type="text" formControlName="mealCookTime" class="form-control" id="mealCookTime"
+                        placeholder="Cook Time">
+                </div>
+
+                <div class="form-group">
+                    <label for="mealIngredients">Ingredients</label>
+                    <textarea type="text" formControlName="mealIngredients" class="form-control" id="mealIngredients"
+                        placeholder="Insert your meal's required ingredients"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="mealDescription">Description</label>
+                    <textarea type="text" formControlName="mealDescription" class="form-control" id="mealDescription"
+                        placeholder="Insert your meal's description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="mealSteps">Cooking Instructions</label>
+                    <textarea type="text" formControlName="mealSteps" class="form-control" id="mealSteps"
+                        placeholder="Insert your meal's cooking instructions"></textarea>
+                </div>
+
+            </div>
+
+            <div *ngIf="!isManual">
+                <div class="form-group">
+                    <label for="mealLink">Meal Link</label>
+                    <input type="text" formControlName="mealLink" class="form-control" id="mealLink" placeholder="Link">
+                </div>
+            </div>
+
+            <button class="btn btn-primary mt-2" type="submit">Submit</button>
+        </form>
+    </div>
+</div>

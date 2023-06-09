@@ -2,10 +2,7 @@
     background-image: url(/assets/fish.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
     background-attachment: fixed;
-    min-height: 100vh;
-    background-color: #C3EFC3;
 }
 
 .main {

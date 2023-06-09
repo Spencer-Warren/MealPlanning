@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface MealDao extends JpaRepository<Meal, Integer> {
-    @Query("SELECT m FROM Meal m WHERE m.user.userID = ?1")
-    List<Meal> findAllByUser_UserID(int userID);
+    @Query("SELECT m FROM Meal m WHERE m.user.id = ?1")
+    List<Meal> findAllByUser(int userID);
 }

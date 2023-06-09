@@ -9,6 +9,9 @@ import { CalendarComponent } from './secure/calendar/calendar.component';
 import { RecipesComponent } from './secure/recipes/recipes.component';
 import { ProfileComponent } from './secure/profile/profile.component';
 import { EditProfileComponent } from './secure/edit-profile/edit-profile.component';
+import { CreateRecipeComponent } from './secure/recipes/create-recipe/create-recipe.component';
+import { ViewRecipeComponent } from './secure/recipes/view-recipe/view-recipe.component';
+import { EditRecipeComponent } from './secure/recipes/edit-recipe/edit-recipe.component';
 
 const routes: Routes = [
   // public routes
@@ -21,7 +24,12 @@ const routes: Routes = [
   
   // secure routes
   { path: 'calendar', component: CalendarComponent },
+
   { path: 'recipes',  component: RecipesComponent },
+  { path: 'create-recipe',  component: CreateRecipeComponent},
+  { path: 'view-recipe',  component: ViewRecipeComponent},
+  { path: 'edit-recipe',  component: EditRecipeComponent},
+
   { path: 'profile',  component: ProfileComponent },
   { path: 'edit-profile',  component: EditProfileComponent },
 

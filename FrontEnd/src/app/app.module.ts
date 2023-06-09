@@ -16,6 +16,9 @@ import { ProfileComponent } from './secure/profile/profile.component';
 import { RecipesComponent } from './secure/recipes/recipes.component';
 import { BasicAuthInterceptor } from './service/basicAuthInterceptor.service';
 import { EditProfileComponent } from './secure/edit-profile/edit-profile.component';
+import { CreateRecipeComponent } from './secure/recipes/create-recipe/create-recipe.component';
+import { ViewRecipeComponent } from './secure/recipes/view-recipe/view-recipe.component';
+import { EditRecipeComponent } from './secure/recipes/edit-recipe/edit-recipe.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { EditProfileComponent } from './secure/edit-profile/edit-profile.compone
     CalendarComponent,
     ProfileComponent,
     RecipesComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    CreateRecipeComponent,
+    ViewRecipeComponent,
+    EditRecipeComponent
   ],
   imports: [
     BrowserModule,

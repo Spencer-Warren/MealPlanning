@@ -49,6 +49,6 @@ public class MealServiceImpl implements MealService{
 
     @Override
     public List<Meal> findAllByUser(int userID) {
-        return dao.findAllByUser_UserID(userID);
+        return dao.findAllByUser(userID);
     }
 }

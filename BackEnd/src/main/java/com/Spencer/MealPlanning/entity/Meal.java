@@ -1,5 +1,6 @@
 package com.spencer.mealplanning.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,6 +28,7 @@ public class Meal {
     @Column(length = 1024)
     private String mealLink;
 
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "userID")
     private User user;

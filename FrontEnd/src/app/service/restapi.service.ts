@@ -22,6 +22,10 @@ export class RESTAPIService {
 
   };
 
+  get user(): User {
+    return JSON.parse(sessionStorage.getItem('user') || '{}');
+  }
+
   registerUser(user: User): Observable<any> {
     return this.http.post<any>(this.url + '/register', user, this.httpOptions);
   }
@@ -38,5 +42,22 @@ export class RESTAPIService {
     return this.http.put<any>(this.url + '/user', user, this.httpOptions);
   }
 
+  getRecipes(): Observable<any> {
+    return this.http.get<any>(this.url + '/meal/user/' + this.user.userID, this.httpOptions);
+  }
 
+  createRecipe(recipe: any): Observable<any> {
+    recipe.user = this.user;
+    return this.http.post<any>(this.url + '/meal', recipe, this.httpOptions);
+  }
+  
+  updateRecipe(recipe: any): Observable<any> {
+    recipe.user = this.user;
+    return this.http.put<any>(this.url + '/meal', recipe, this.httpOptions);
+  }
+
+  deleteRecipe(recipe: any): Observable<any> {
+    recipe.user = this.user;
+    return this.http.delete<any>(this.url + '/meal', { headers: this.httpOptions.headers, body: recipe});
+  }
 }
