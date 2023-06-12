@@ -1,4 +1,4 @@
-export class Recipe {
+export class Meal {
     mealID: number;
     mealName: string;
     mealCategory: string;

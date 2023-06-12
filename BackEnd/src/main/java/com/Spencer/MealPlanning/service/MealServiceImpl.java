@@ -30,7 +30,14 @@ public class MealServiceImpl implements MealService{
         dao.findById(meal.getMealID())
                 .ifPresent(
                 u -> {
-                    dao.save(meal);
+                    u.setMealName(meal.getMealName());
+                    u.setMealDescription(meal.getMealDescription());
+                    u.setMealCategory(meal.getMealCategory());
+                    u.setMealIngredients(meal.getMealIngredients());
+                    u.setMealSteps(meal.getMealSteps());
+                    u.setMealCookTime(meal.getMealCookTime());
+                    u.setMealLink(meal.getMealLink());
+                    dao.save(u);
                 }
         );
         return Response.of("Meal with ID:" + meal.getMealID() + " does not exist.");

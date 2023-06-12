@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { RESTAPIService } from 'src/app/service/restapi.service';
 
 @Component({
-  selector: 'app-create-recipe',
-  templateUrl: './create-recipe.component.html',
-  styleUrls: ['./create-recipe.component.css']
+  selector: 'app-create-meal',
+  templateUrl: './create-meal.component.html',
+  styleUrls: ['./create-meal.component.css']
 })
-export class CreateRecipeComponent {
+export class CreatemealComponent {
   mealForm!: FormGroup;
   isManual!: boolean;
 
@@ -28,8 +28,8 @@ export class CreateRecipeComponent {
 
   onSubmit() {
     if (this.mealForm.valid) {
-      this.restAPI.createRecipe(this.mealForm.value).subscribe((data: any) => {
-        this.router.navigate(['/recipes']);
+      this.restAPI.createMeal(this.mealForm.value).subscribe((data: any) => {
+        this.router.navigate(['/meals']);
       });
     }
     else {

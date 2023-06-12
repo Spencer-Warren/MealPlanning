@@ -42,22 +42,22 @@ export class RESTAPIService {
     return this.http.put<any>(this.url + '/user', user, this.httpOptions);
   }
 
-  getRecipes(): Observable<any> {
+  getMeals(): Observable<any> {
     return this.http.get<any>(this.url + '/meal/user/' + this.user.userID, this.httpOptions);
   }
 
-  createRecipe(recipe: any): Observable<any> {
-    recipe.user = this.user;
-    return this.http.post<any>(this.url + '/meal', recipe, this.httpOptions);
+  createMeal(meal: any): Observable<any> {
+    meal.user = this.user;
+    return this.http.post<any>(this.url + '/meal', meal, this.httpOptions);
   }
   
-  updateRecipe(recipe: any): Observable<any> {
-    recipe.user = this.user;
-    return this.http.put<any>(this.url + '/meal', recipe, this.httpOptions);
+  updateMeal(meal: any): Observable<any> {
+    meal.user = this.user;
+    return this.http.put<any>(this.url + '/meal', meal, this.httpOptions);
   }
 
-  deleteRecipe(recipe: any): Observable<any> {
-    recipe.user = this.user;
-    return this.http.delete<any>(this.url + '/meal', { headers: this.httpOptions.headers, body: recipe});
+  deleteMeal(meal: any): Observable<any> {
+    meal.user = this.user;
+    return this.http.delete<any>(this.url + '/meal', { headers: this.httpOptions.headers, body: meal});
   }
 }

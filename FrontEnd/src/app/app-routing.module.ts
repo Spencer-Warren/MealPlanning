@@ -6,12 +6,12 @@ import { AboutComponent } from './public/about/about.component';
 import { ContactComponent } from './public/contact/contact.component';
 import { RegisterComponent } from './public/register/register.component';
 import { CalendarComponent } from './secure/calendar/calendar.component';
-import { RecipesComponent } from './secure/recipes/recipes.component';
+import { mealsComponent } from './secure/meals/meals.component';
 import { ProfileComponent } from './secure/profile/profile.component';
 import { EditProfileComponent } from './secure/edit-profile/edit-profile.component';
-import { CreateRecipeComponent } from './secure/recipes/create-recipe/create-recipe.component';
-import { ViewRecipeComponent } from './secure/recipes/view-recipe/view-recipe.component';
-import { EditRecipeComponent } from './secure/recipes/edit-recipe/edit-recipe.component';
+import { CreatemealComponent } from './secure/meals/create-meal/create-meal.component';
+import { ViewmealComponent } from './secure/meals/view-meal/view-meal.component';
+import { EditmealComponent } from './secure/meals/edit-meal/edit-meal.component';
 
 const routes: Routes = [
   // public routes
@@ -25,10 +25,10 @@ const routes: Routes = [
   // secure routes
   { path: 'calendar', component: CalendarComponent },
 
-  { path: 'recipes',  component: RecipesComponent },
-  { path: 'create-recipe',  component: CreateRecipeComponent},
-  { path: 'view-recipe',  component: ViewRecipeComponent},
-  { path: 'edit-recipe',  component: EditRecipeComponent},
+  { path: 'meals',  component: mealsComponent },
+  { path: 'create-meal',  component: CreatemealComponent},
+  { path: 'view-meal',  component: ViewmealComponent},
+  { path: 'edit-meal',  component: EditmealComponent},
 
   { path: 'profile',  component: ProfileComponent },
   { path: 'edit-profile',  component: EditProfileComponent },

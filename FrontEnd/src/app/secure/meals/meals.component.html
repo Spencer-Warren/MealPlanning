@@ -1,0 +1,28 @@
+<div class="card w-75">
+    <div class="card-header">
+        <h1>meals</h1>
+    </div>
+    <div class="card-body">
+        <button class="btn btn-primary mb-3" (click)="createmeal()">Create a Meal</button>
+        <div *ngIf="meals.length == 0" class="m-3">
+            No meals found... <br>
+            you can create one using the button above.
+        </div>
+        <div *ngIf="meals.length > 0" class="row">
+
+        <div *ngFor="let meal of meals" class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2>{{meal.mealName}}</h2>
+                    <div class="text-muted">{{meal.mealCategory}}</div>
+                </div>
+                <div class="card-body">
+                    <p>{{meal.mealDescription}}</p>
+                    <button class="btn btn-primary me-2" (click)="onSelect(meal)">View</button>
+                    <button class="btn btn-outline-primary me-2" (click)="onEdit(meal)">Edit</button>
+                    <button class="btn btn-danger" (click)="onDelete(meal)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

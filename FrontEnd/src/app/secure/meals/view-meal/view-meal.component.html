@@ -1,0 +1,21 @@
+<div class="card m-5 w-80">
+    <div class="card-header">
+        <h1>Meal View</h1>
+    </div>
+    <div class="card-body">
+        <h1>{{selectedmeal.mealName}}</h1>
+        <p>{{selectedmeal.mealCategory}}</p>
+
+        <a *ngIf="selectedmeal.mealLink" href="{{selectedmeal.mealLink}}">{{selectedmeal.mealLink}}</a>
+        
+        <div *ngIf="!selectedmeal.mealLink">
+            <p>Cook Time: {{selectedmeal.mealCookTime}}</p>
+            <h3>Description</h3>
+            <p>{{selectedmeal.mealDescription}}</p>
+            <h3>Ingredients</h3>
+            <p>{{selectedmeal.mealIngredients}}</p>
+            <h3>Instructions</h3>
+            <p>{{selectedmeal.mealSteps}}</p>
+        </div>
+    </div>
+</div>

@@ -15,9 +15,10 @@ public class Meal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int mealID;
     private String mealName;
-    private String mealCategory;
+    private String mealCuisine;
 
     private String mealCookTime;
+    private String mealPrepTime;
     @Column(columnDefinition="TEXT")
     private String mealDescription;
     @Column(columnDefinition="TEXT")
