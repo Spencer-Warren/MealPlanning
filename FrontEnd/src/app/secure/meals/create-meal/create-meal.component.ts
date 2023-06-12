@@ -17,8 +17,9 @@ export class CreatemealComponent {
   ngOnInit(): void {
     this.mealForm = new FormBuilder().group({
       mealName: new FormControl <string> ('', [Validators.required, Validators.minLength(3),]),
-      mealCategory: new FormControl <string> ('', [Validators.minLength(3),]),
+      mealCuisine: new FormControl <string> ('', [Validators.minLength(3),]),
       mealCookTime: new FormControl <string> ('', [Validators.minLength(3),]),
+      mealPrepTime: new FormControl <string> ('', [Validators.minLength(3),]),
       mealDescription: new FormControl <string> ('', [Validators.minLength(3),]),
       mealSteps: new FormControl <string> ('', [Validators.minLength(3),]),
       mealIngredients: new FormControl <string> ('', [Validators.minLength(3),]),

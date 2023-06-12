@@ -19,8 +19,9 @@ export class EditmealComponent {
   ngOnInit(): void {
     this.mealForm = new FormBuilder().group({
       mealName:        new FormControl <string> ('', [Validators.required, Validators.minLength(3),]),
-      mealCategory:    new FormControl <string> ('', [Validators.minLength(3)]),
+      mealCuisine:    new FormControl <string> ('', [Validators.minLength(3)]),
       mealCookTime:    new FormControl <string> ('', [Validators.minLength(3)]),
+      mealPrepTime:    new FormControl <string> ('', [Validators.minLength(3)]),
       mealDescription: new FormControl <string> ('', [Validators.minLength(3)]),
       mealSteps:       new FormControl <string> ('', [Validators.minLength(3)]),
       mealIngredients: new FormControl <string> ('', [Validators.minLength(3)]),
@@ -30,8 +31,9 @@ export class EditmealComponent {
       this.mealID = meal.mealID;
       this.mealForm.patchValue({
         mealName: meal.mealName,
-        mealCategory: meal.mealCategory,
+        mealCuisine: meal.mealCuisine,
         mealCookTime: meal.mealCookTime,
+        mealPrepTime: meal.mealPrepTime,
         mealDescription: meal.mealDescription,
         mealSteps: meal.mealSteps,
         mealIngredients: meal.mealIngredients,

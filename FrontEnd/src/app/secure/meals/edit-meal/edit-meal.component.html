@@ -17,9 +17,9 @@
             </div>
 
             <div class="form-group">
-                <label for="mealCategory">Meal Category</label>
-                <input type="text" formControlName="mealCategory" class="form-control" id="mealCategory"
-                    placeholder="Category">
+                <label for="mealCuisine">Meal Cuisine</label>
+                <input type="text" formControlName="mealCuisine" class="form-control" id="mealCuisine"
+                    placeholder="Cuisine">
             </div>
 
             <div *ngIf="isManual">
@@ -28,6 +28,12 @@
                     <label for="mealCookTime">Meal Cook Time</label>
                     <input type="text" formControlName="mealCookTime" class="form-control" id="mealCookTime"
                         placeholder="Cook Time">
+                </div>
+
+                <div class="form-group">
+                    <label for="mealPrepTime">Meal Prep Time</label>
+                    <input type="text" formControlName="mealPrepTime" class="form-control" id="mealPrepTime"
+                        placeholder="Prep Time">
                 </div>
 
                 <div class="form-group">
