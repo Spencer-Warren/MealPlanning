@@ -4,18 +4,21 @@
     </div>
     <div class="card-body">
         <h1>{{selectedmeal.mealName}}</h1>
-        <p>{{selectedmeal.mealCategory}}</p>
+        <p>Cuisine: {{selectedmeal.mealCuisine}}</p>
 
         <a *ngIf="selectedmeal.mealLink" href="{{selectedmeal.mealLink}}">{{selectedmeal.mealLink}}</a>
         
         <div *ngIf="!selectedmeal.mealLink">
             <p>Cook Time: {{selectedmeal.mealCookTime}}</p>
+            <p>Prep Time: {{selectedmeal.mealPrepTime}}</p>
             <h3>Description</h3>
             <p>{{selectedmeal.mealDescription}}</p>
+            <hr>
             <h3>Ingredients</h3>
-            <p>{{selectedmeal.mealIngredients}}</p>
+            <pre>{{selectedmeal.mealIngredients}}</pre>
+            <hr>
             <h3>Instructions</h3>
-            <p>{{selectedmeal.mealSteps}}</p>
+            <pre>{{selectedmeal.mealSteps}}</pre>
         </div>
     </div>
 </div>

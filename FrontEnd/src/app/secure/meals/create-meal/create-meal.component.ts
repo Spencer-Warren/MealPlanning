@@ -29,6 +29,7 @@ export class CreatemealComponent {
 
   onSubmit() {
     if (this.mealForm.valid) {
+      console.log(this.mealForm.value);
       this.restAPI.createMeal(this.mealForm.value).subscribe((data: any) => {
         this.router.navigate(['/meals']);
       });

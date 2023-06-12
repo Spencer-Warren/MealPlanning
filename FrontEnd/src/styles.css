@@ -1,3 +1,11 @@
+pre {
+    white-space: pre-wrap;
+}
+
+label {
+    margin-bottom: .5rem;
+}
+
 .background {
     background-image: url(/assets/fish.png);
     background-repeat: no-repeat;
@@ -36,6 +44,29 @@
     margin-bottom: 1rem;
 }
 
-label {
-    margin-bottom: .5rem;
+
+.profile-picture-lg {
+    height: 200px;
+    max-width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #F9F5EC;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: hidden;
+}
+
+.profile-picture-sm {
+    height: 75px;
+    max-width: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #F9F5EC;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: hidden;
+}
+
+.align-bottom {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
 }

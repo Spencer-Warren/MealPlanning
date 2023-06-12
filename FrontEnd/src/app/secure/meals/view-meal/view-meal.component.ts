@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Meal } from 'src/app/modles/Meal';
 
 @Component({
   selector: 'app-view-meal',
@@ -9,7 +10,8 @@ export class ViewmealComponent {
 
   constructor() { }
 
-  get selectedmeal(): any {
+  get selectedmeal(): Meal {
+    console.log(JSON.parse(sessionStorage.getItem('selectedmeal') || '{}'));
     return JSON.parse(sessionStorage.getItem('selectedmeal') || '{}');
   }
 

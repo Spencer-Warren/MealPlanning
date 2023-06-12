@@ -1,6 +1,6 @@
 <div class="card w-75">
     <div class="card-header">
-        <h1>meals</h1>
+        <h1>Meals</h1>
     </div>
     <div class="card-body">
         <button class="btn btn-primary mb-3" (click)="createmeal()">Create a Meal</button>
@@ -18,6 +18,9 @@
                 </div>
                 <div class="card-body">
                     <p>{{meal.mealDescription}}</p>
+                    <div *ngIf="meal.mealLink" class="mb-3">
+                        <a href="{{meal.mealLink}}" class="">{{meal.mealLink}}</a>
+                    </div>
                     <button class="btn btn-primary me-2" (click)="onSelect(meal)">View</button>
                     <button class="btn btn-outline-primary me-2" (click)="onEdit(meal)">Edit</button>
                     <button class="btn btn-danger" (click)="onDelete(meal)">Delete</button>

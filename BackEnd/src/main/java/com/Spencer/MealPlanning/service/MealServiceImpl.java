@@ -32,7 +32,7 @@ public class MealServiceImpl implements MealService{
                 u -> {
                     u.setMealName(meal.getMealName());
                     u.setMealDescription(meal.getMealDescription());
-                    u.setMealCategory(meal.getMealCategory());
+                    u.setMealCuisine(meal.getMealCuisine());
                     u.setMealIngredients(meal.getMealIngredients());
                     u.setMealSteps(meal.getMealSteps());
                     u.setMealCookTime(meal.getMealCookTime());

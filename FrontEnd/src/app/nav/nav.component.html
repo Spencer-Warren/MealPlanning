@@ -22,6 +22,8 @@
                 <a class="nav-link" routteLink="/login" (click)="logout()">Logout</a>
             </div>
         </div>
-
     </nav>
+    <div *ngIf="isLoggedIn">
+        <a routerLink="/profile"><img [src]="profilePicture" class="profile-picture-sm align-bottom ms-4"></a>
+    </div>
 </div>

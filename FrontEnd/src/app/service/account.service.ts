@@ -2,13 +2,17 @@ import { Injectable } from '@angular/core';
 import { User } from '../modles/User';
 import { RESTAPIService } from './restapi.service';
 import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
+import {  Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
 
-  constructor(private api: RESTAPIService, private router: Router) { }
+  profilePicture!: Subject<any>;
+
+  constructor(private api: RESTAPIService, private router: Router, private sanitizer: DomSanitizer) { }
 
   async login(user: User){
     this.api.loginUser(user).subscribe(
@@ -27,7 +31,9 @@ export class AccountService {
 
   updateUserInfo(user: User, password?: string) {
     sessionStorage.setItem('user', JSON.stringify(user));
-    sessionStorage.setItem('token', this.getAuthenticationToken(user.username, password || ''));
+    if (password) {
+      sessionStorage.setItem('token', this.getAuthenticationToken(user.username, password || ''));
+    }
   }
 
   logout() {
@@ -58,9 +64,10 @@ export class AccountService {
 
   getAuthenticationToken(username: string, password: string) {
     return 'basic ' + btoa(username + ':' + password);
-  }  
-  
+  } 
+
   get isLoggedIn() {
     return sessionStorage.getItem('user') !== null;
   }
+
 }

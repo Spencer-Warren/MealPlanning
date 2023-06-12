@@ -19,7 +19,13 @@ export class RESTAPIService {
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE'
     }),
     observe: 'response' as 'response'
+  };
 
+  httpOptionsFile = {
+    headers: new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE'
+    })
   };
 
   get user(): User {
@@ -42,6 +48,8 @@ export class RESTAPIService {
     return this.http.put<any>(this.url + '/user', user, this.httpOptions);
   }
 
+
+
   getMeals(): Observable<any> {
     return this.http.get<any>(this.url + '/meal/user/' + this.user.userID, this.httpOptions);
   }
@@ -59,5 +67,15 @@ export class RESTAPIService {
   deleteMeal(meal: any): Observable<any> {
     meal.user = this.user;
     return this.http.delete<any>(this.url + '/meal', { headers: this.httpOptions.headers, body: meal});
+  }
+
+
+
+  createProfilePicture(profilePicture: any) : Observable<any> {
+    return this.http.post<any>(this.url + "/profile/" + this.user.userID, profilePicture, this.httpOptionsFile);
+  }
+
+  getProfilePicture(): Observable<any> {
+    return this.http.get<Blob>(this.url + "/profile/" + this.user.userID, { observe: 'response', responseType: 'blob' as 'json'});
   }
 }

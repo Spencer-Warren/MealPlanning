@@ -17,6 +17,8 @@ export class EditProfileComponent {
   userEmail: string = this.user.userEmail;
   username: string  = this.user.username;
 
+  file!: File;
+
   profileForm!: FormGroup;
 
   constructor(private restAPIService: RESTAPIService, private router: Router, private account: AccountService) {}
@@ -34,7 +36,13 @@ export class EditProfileComponent {
     if (!this.profileForm.valid) {
      return;
     }
+    if (this.file) {
+      this.submitProfilePicture();
+    }
+    this.submitUser();
+  }
 
+  submitUser() {
     let user: User = this.user;
     user.firstName = this.profileForm.value.firstName;
     user.lastName = this.profileForm.value.lastName;
@@ -42,7 +50,7 @@ export class EditProfileComponent {
     user.username = this.profileForm.value.username;
 
     this.restAPIService.updateUser(user).subscribe((data: any) => {
-      sessionStorage.setItem("user", JSON.stringify(user));
+      this.account.updateUserInfo(user);
       if (this.profileForm.value.username != this.username) {
         alert("You have changed your username. Please log in again.");
         this.account.logout();
@@ -51,5 +59,18 @@ export class EditProfileComponent {
       alert("Profile updated successfully.");
       this.router.navigate(['/profile']);
     });
+  }
+
+  submitProfilePicture() {
+    let formData = new FormData();
+    formData.append("file", this.file);
+    this.restAPIService.createProfilePicture(formData).subscribe((data: any) => {
+      
+    });
+  }
+
+  onFileChange(event: any) {
+    this.file = event.target.files[0];
+    console.log(this.file.name);
   }
 }

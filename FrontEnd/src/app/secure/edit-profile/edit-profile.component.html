@@ -26,6 +26,9 @@
                     <input type="email" formControlName="userEmail" class="form-control" id="userEmail" placeholder="Email">
                 </div>
 
+                <label for="profilePicture">Upload A Profile Picture!</label>
+                <input (change)="onFileChange($event)" type="file" class="form-control file-upload w-25" id="profilePicture" placeholder="License">
+
                 <button class="btn btn-primary mt-2" type="submit">Submit</button>
             </form>
         </div>
