@@ -11,7 +11,6 @@ export class ViewmealComponent {
   constructor() { }
 
   get selectedmeal(): Meal {
-    console.log(JSON.parse(sessionStorage.getItem('selectedmeal') || '{}'));
     return JSON.parse(sessionStorage.getItem('selectedmeal') || '{}');
   }
 

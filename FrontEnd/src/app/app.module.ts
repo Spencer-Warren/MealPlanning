@@ -19,6 +19,9 @@ import { EditProfileComponent } from './secure/edit-profile/edit-profile.compone
 import { CreatemealComponent } from './secure/meals/create-meal/create-meal.component';
 import { ViewmealComponent } from './secure/meals/view-meal/view-meal.component';
 import { EditmealComponent } from './secure/meals/edit-meal/edit-meal.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,9 @@ import { EditmealComponent } from './secure/meals/edit-meal/edit-meal.component'
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true}
