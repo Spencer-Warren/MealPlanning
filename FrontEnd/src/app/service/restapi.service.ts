@@ -78,4 +78,23 @@ export class RESTAPIService {
   getProfilePicture(): Observable<any> {
     return this.http.get<Blob>(this.url + "/profile/" + this.user.userID, { observe: 'response', responseType: 'blob' as 'json'});
   }
+
+
+
+  getMealEvents(): Observable<any> {
+    return this.http.get<any>(this.url + '/mealEvent/user/' + this.user.userID, this.httpOptions);
+  }
+
+  createMealEvent(mealEvent: any): Observable<any> {
+    return this.http.post<any>(this.url + '/mealEvent', mealEvent, this.httpOptions);
+  }
+
+  updateMealEvent(mealEvent: any): Observable<any> {
+    return this.http.put<any>(this.url + '/mealEvent', mealEvent, this.httpOptions);
+  }
+
+  deleteMealEvent(mealEvent: any): Observable<any> {
+    return this.http.delete<any>(this.url + '/mealEvent', { headers: this.httpOptions.headers, body: mealEvent});
+  }
+
 }

@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Builder
 @NoArgsConstructor
@@ -28,6 +30,11 @@ public class Meal {
 
     @Column(length = 1024)
     private String mealLink;
+
+    @JsonIgnore
+    @OneToMany(orphanRemoval = true)
+    @JoinColumn(name="mealID")
+    private List<MealEvent> mealEvents;
 
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "userID")

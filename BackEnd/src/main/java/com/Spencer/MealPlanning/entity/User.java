@@ -32,7 +32,7 @@ public class User implements UserDetails {
     private String userRole;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
     private List<Meal> meals;
 
     @JsonIgnore

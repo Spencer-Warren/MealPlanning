@@ -6,6 +6,10 @@ label {
     margin-bottom: .5rem;
 }
 
+i {
+    color: #F9F5EC;
+}
+
 .background {
     background-image: url(/assets/fish.png);
     background-repeat: no-repeat;
@@ -44,7 +48,7 @@ label {
     margin-bottom: 1rem;
 }
 
-
+/* Large profile picture on profile page */
 .profile-picture-lg {
     height: 200px;
     max-width: 200px;
@@ -54,7 +58,7 @@ label {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     overflow: hidden;
 }
-
+/* Small PFP bottom left */
 .profile-picture-sm {
     height: 75px;
     max-width: 75px;
@@ -64,9 +68,37 @@ label {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     overflow: hidden;
 }
-
+/* aligh item to bottom used for PFP in nav */
 .align-bottom {
     position: absolute;
     bottom: 0;
     margin-bottom: 20px;
+}
+/* Seperate action icons and color */
+.cal-event-action {
+    color: #000000;
+    margin: 5px;
+}
+/* Make meals on calendar look better */
+.dragable {
+    border: 1px solid #000000;
+    text-decoration: none;
+    color: #000000;
+    padding: 3px;
+    background-color: #F9F5EC;
+}
+/* idk why the number for today is so big this fixes it */
+.cal-month-view .cal-day-cell.cal-today .cal-day-number {
+    font-size: 1.2em;
+}
+/* Open day background 
+    also makes the border on the bottom of the day 
+    idk why it wasnt there before
+*/
+.cal-month-view .cal-open-day-events {
+    background-color: #F9F5EC;
+    color: #000000;
+    box-shadow: none;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e1e1e1;
 }

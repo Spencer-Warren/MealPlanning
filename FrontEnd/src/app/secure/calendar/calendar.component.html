@@ -29,24 +29,26 @@
         [refresh]="refresh"
         [activeDayIsOpen]="activeDayIsOpen" 
         (dayClicked)="dayClicked($event.day)"
-        (eventClicked)="handleEvent('Clicked', $event.event)" 
         (eventTimesChanged)="eventDropped($event)">
         </mwl-calendar-month-view>
         <br>
         <div class="card">
-            <div class="card-header">
+            <h3 class="card-header">
                 Meals
-            </div>
+            </h3>
             <div class="card-body">
                 <p *ngIf="externalEvents.length === 0"><em>No events added</em></p>
-                <ul>
-                    <li *ngFor="let event of externalEvents" mwlDraggable [dropData]="{event: event}"
-                        [touchStartLongPress]="{ delay: 300, delta: 30 }" dragActiveClass="drag-active">
-                        <a href="javascript:;" class="nav-link">
+
+                    <div *ngFor="let event of externalEvents" 
+                        class="m-2"
+                        mwlDraggable 
+                        [dropData]="{event: event}"
+                        [touchStartLongPress]="{ delay: 300, delta: 30 }" 
+                        dragActiveClass="drag-active">
+                        <a href="javascript:;" class="dragable">
                             {{ event.title }}
                         </a>
-                    </li>
-                </ul>
+                    </div>
             </div>
         </div>
     </div>
