@@ -32,23 +32,23 @@
         (eventTimesChanged)="eventDropped($event)">
         </mwl-calendar-month-view>
         <br>
+        
         <div class="card">
             <h3 class="card-header">
                 Meals
             </h3>
             <div class="card-body">
                 <p *ngIf="externalEvents.length === 0"><em>No events added</em></p>
-
-                    <div *ngFor="let event of externalEvents" 
-                        class="m-2"
-                        mwlDraggable 
-                        [dropData]="{event: event}"
-                        [touchStartLongPress]="{ delay: 300, delta: 30 }" 
-                        dragActiveClass="drag-active">
-                        <a href="javascript:;" class="dragable">
-                            {{ event.title }}
-                        </a>
-                    </div>
+                <div *ngFor="let event of externalEvents" 
+                    class="m-2"
+                    mwlDraggable 
+                    [dropData]="{event: event}"
+                    [touchStartLongPress]="{ delay: 300, delta: 30 }" 
+                    dragActiveClass="drag-active">
+                    <a href="javascript:;" class="dragable">
+                        {{ event.title }}
+                    </a>
+                </div>
             </div>
         </div>
     </div>

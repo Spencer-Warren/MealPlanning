@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class RESTAPIService {
 
-  url: string = "http://localhost:5000/api";
+  url: string = "http://192.168.5.210:5000/api";
 
   constructor(private http: HttpClient) { }
 

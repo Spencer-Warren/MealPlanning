@@ -1,18 +1,11 @@
 import {
   Component,
-  ChangeDetectionStrategy,
-  ViewChild,
-  TemplateRef,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import {
-  startOfDay,
-  endOfDay,
-  subDays,
   addDays,
-  endOfMonth,
   isSameDay,
   isSameMonth,
-  addHours,
 } from 'date-fns';
 import { Subject } from 'rxjs';
 import {
@@ -25,7 +18,6 @@ import { Meal } from 'src/app/modles/Meal';
 import { RESTAPIService } from 'src/app/service/restapi.service';
 import { MealEvent } from 'src/app/modles/Event';
 import { Router } from '@angular/router';
-import { th } from 'date-fns/locale';
 
 @Component({
   selector: 'app-calendar',
@@ -62,7 +54,7 @@ export class CalendarComponent {
         let tempDate: Date = event.end == null ? event.start : event.end;
         event.end = addDays(tempDate, 1);
         this.updateEvent(event);
-        this.events = [...this.events];
+        this.refresh.next();
       },
     },
     {
@@ -72,7 +64,7 @@ export class CalendarComponent {
         if (event.start >= tempDate) return;
         event.end = addDays(tempDate, -1);
         this.updateEvent(event);
-        this.events = [...this.events];
+        this.refresh.next();
       },
     },
     {
@@ -100,7 +92,6 @@ export class CalendarComponent {
       this.meals = data.body;
       this.meals.forEach((meal) =>
         this.externalEvents.push(new MealEvent(new Date(), new Date(), this.actions, meal))
-    
       )
       this.refresh.next();
     });
@@ -125,9 +116,9 @@ export class CalendarComponent {
     newStart,
     newEnd,
   }: CalendarEventTimesChangedEvent): void {
-    // If the event is already on the calender, update it
     this.activeDayIsOpen = false;
     let found = false;
+    // If the event is already on the calender, update it
     this.events = this.events.map((iEvent) => {
       if (iEvent === event) {
         found = true;
@@ -169,7 +160,7 @@ export class CalendarComponent {
   updateViewDate(date: Date) {
     this.viewDate = date;
     this.activeDayIsOpen = true;
-    this.events = [...this.events];
+    this.refresh.next();
   }
 
   closeOpenMonthViewDay() {
@@ -178,6 +169,8 @@ export class CalendarComponent {
 
   createEvent(event: MealEvent) {
     this.api.createMealEvent(event).subscribe((data: any) => {
+      // Update the event with the ID from the database
+      // This is done so that the event can be updated and deleted
       event.mealEventID = data.body.mealEventID;
     });
   }
