@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class RESTAPIService {
 
-  url: string = "http://192.168.5.210:5000/api";
+  url: string = "http://MealPlanning-env.eba-wnnbtw72.us-east-1.elasticbeanstalk.com/api";
 
   constructor(private http: HttpClient) { }
 
