@@ -4,9 +4,7 @@
             <img src="assets/EatUpLogo.png" alt="Eat Up Logo" class="logo-s">
             Eat Up
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-collapse" aria-controls="nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        
         <div class="collapse navbar-collapse" id="nav-collapse">
             
             <!-- if not logged in -->
@@ -28,8 +26,12 @@
                 </div>
             </div>
         </div>
-        </nav>
         <div *ngIf="isLoggedIn">
-            <a routerLink="/profile"><img [src]="profilePicture" class="profile-picture-sm align-bottom ms-4"></a>
+            <a routerLink="/profile" class=><img [src]="profilePicture" class="profile-picture-sm "></a>
         </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-collapse" aria-controls="nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+        
     </div>

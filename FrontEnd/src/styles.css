@@ -48,18 +48,19 @@ i {
 
 /* Large profile picture on profile page */
 .profile-picture-lg {
-    height: 200px;
-    max-width: 200px;
+    height: 100px;
+    max-width: 100px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #F9F5EC;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     overflow: hidden;
+    margin: 5px;
 }
 /* Small PFP bottom left */
 .profile-picture-sm {
-    height: 75px;
-    max-width: 75px;
+    min-height: 50px;
+    max-width: 50px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #F9F5EC;
