@@ -1,29 +1,35 @@
-<div class="custom-nav off-white">
-    <nav class="navbar p-3">
+<div class="off-white">
+    <nav class="navbar navbar-expand-lg ps-3 pe-3">
         <a class="navbar-brand h1" href="#">
             <img src="assets/EatUpLogo.png" alt="Eat Up Logo" class="logo-s">
             Eat Up
         </a>
-        <!-- if not logged in -->
-        <div *ngIf="!isLoggedIn" class="nav-links ms-4 mt-3">
-            <div class="navbar-nav">
-                <a class="nav-link" routerLink="/home">Home</a>
-                <a class="nav-link" routerLink="/login">Login</a>
-                <a class="nav-link" routerLink="/about">About</a>
-                <a class="nav-link" routerLink="/contact">Contact</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-collapse" aria-controls="nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="nav-collapse">
+            
+            <!-- if not logged in -->
+            <div *ngIf="!isLoggedIn" class="nav-links">
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-link" routerLink="/home">Home</a>
+                    <a class="nav-link" routerLink="/login">Login</a>
+                    <a class="nav-link" routerLink="/about">About</a>
+                    <a class="nav-link" routerLink="/contact">Contact</a>
+                </div>
+            </div>
+            <!-- if logged in -->
+            <div *ngIf="isLoggedIn" class="nav-links">
+                <div class="navbar-nav">
+                    <a class="nav-link" routerLink="/calendar">Calendar</a>
+                    <a class="nav-link" routerLink="/meals">Meals</a>
+                    <a class="nav-link" routerLink="/profile">Profile</a>
+                    <a class="nav-link" routteLink="/login" (click)="logout()">Logout</a>
+                </div>
             </div>
         </div>
-        <!-- if logged in -->
-        <div *ngIf="isLoggedIn" class="nav-links ms-4 mt-3">
-            <div class="navbar-nav">
-                <a class="nav-link" routerLink="/calendar">Calendar</a>
-                <a class="nav-link" routerLink="/meals">Meals</a>
-                <a class="nav-link" routerLink="/profile">Profile</a>
-                <a class="nav-link" routteLink="/login" (click)="logout()">Logout</a>
-            </div>
+        </nav>
+        <div *ngIf="isLoggedIn">
+            <a routerLink="/profile"><img [src]="profilePicture" class="profile-picture-sm align-bottom ms-4"></a>
         </div>
-    </nav>
-    <div *ngIf="isLoggedIn">
-        <a routerLink="/profile"><img [src]="profilePicture" class="profile-picture-sm align-bottom ms-4"></a>
     </div>
-</div>

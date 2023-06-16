@@ -17,14 +17,12 @@ i {
     background-attachment: fixed;
 }
 
-.main {
-    margin-left: 200px;
-    padding-top: 10px;
-    padding-right: 10px;
-}
-
 .off-white {
     background-color: #F9F5EC;
+}
+
+.card {
+    margin-top: 1rem;
 }
 
 .card-header {
