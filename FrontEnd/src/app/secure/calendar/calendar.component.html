@@ -22,7 +22,37 @@
             <div class="col-md-4">
                 <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
             </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#instructionModal">
+                Instructions
+              </button>
+            </div>
         </div>
+
+        <div class="modal fade" id="instructionModal" tabindex="-1" aria-labelledby="instructionModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="instructionModalLabel">Meal Planning Instructions</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>Drag and drop meals from the list below into the calendar to plan a meal</li>
+                        <li>Drag and drop meals from one day to another to change the date</li>
+                        <li>Use the plus and minus buttons to increase or decrease the number of days a meal is planned for</li>
+                        <li>Use the trash can to delete a meal from the calendar and the book icon to view the recipe</li>
+                    </ul>
+                    <br>
+                    All changes are saved automatically.
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         <mwl-calendar-month-view 
         [viewDate]="viewDate" 
         [events]="events" 

@@ -10,6 +10,10 @@ i {
     color: #F9F5EC;
 }
 
+li {
+    margin: 10px;
+}
+
 .background {
     background-image: url(/assets/fish.png);
     background-repeat: no-repeat;
